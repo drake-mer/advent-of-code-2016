@@ -57,5 +57,5 @@ ex4' = [ "aaaaa-bbb-z-y-x-123[abxyz]"
         ,"totally-real-room-200[decoy]" ]
 ex4 = lines <$> readFile "input_day_4.txt"
 
-
+answer = sum <$> map getSectorId <$> filter isValidName <$> ex4
 
