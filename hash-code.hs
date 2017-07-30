@@ -3,18 +3,16 @@ import qualified Data.HashMap.Strict as HashMap
 import qualified Data.List as List
 import qualified Data.Char as Char
 
+
 type FullName = String
 type Name = String
 type SectorId = Int
-type HashCode = [Char]
+type HashCode = String
 type Sentence = String
-computeHashCode :: FullName -> HashCode
-computeHashCode name = undefined
+
 
 getName :: FullName -> Name
 getName =  map (\x-> if x=='-' then ' ' else x) . takeWhile (\x -> not (x`elem`['0'..'9']))
-
-
 
 freqTable :: Name -> [(Char, Int)]
 freqTable name = computeFreqTable HashMap.empty name 
@@ -24,7 +22,6 @@ freqTable name = computeFreqTable HashMap.empty name
             | otherwise = computeFreqTable (HashMap.adjust (+1) x hashmap) xs
             where oldValue = HashMap.lookup x hashmap;
         computeFreqTable hashmap [] = HashMap.toList hashmap
-        
 
 getSectorId :: Name -> SectorId
 getSectorId name = read (getInteger name [])
@@ -35,9 +32,14 @@ getSectorId name = read (getInteger name [])
         getInteger [] store = reverse store;
     }
 
+
+{- compute the hash code from the data given 
+ - in http://adventofcode.com/2016/day/4 -}
 getCode :: Name -> HashCode
 getCode = take 5 . map fst . List.sortBy cmpFreq . freqTable . getEncryptedName
 
+{- get the hash at the end of the string made of only 5 
+ - letters enclosed into a pair of brackets ([])-}
 getHash :: FullName -> HashCode
 getHash (x:xs)
     | x /= '[' = getHash xs
@@ -77,6 +79,6 @@ shiftN n x = Char.chr ( (Char.ord x - 97 + n) `mod` 26 + 97 )
 
 
 answer' = map translateSentence $ filter isValidName ex4'
-answer2 = map translateSentence <$> filter isValidName <$> ex4
+answer2 = map translateSentence . filter isValidName <$> ex4
 
 lastAnswer = filter (List.isInfixOf "north") <$> answer2
