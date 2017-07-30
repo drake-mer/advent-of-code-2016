@@ -1,15 +1,19 @@
 {- problem statement : http://adventofcode.com/2016/day/4 -}
-
 import qualified Data.HashMap.Strict as HashMap
 import qualified Data.List as List
-
+import qualified Data.Char as Char
 
 type FullName = String
 type Name = String
 type SectorId = Int
 type HashCode = [Char]
+type Sentence = String
 computeHashCode :: FullName -> HashCode
 computeHashCode name = undefined
+
+getName :: FullName -> Name
+getName =  map (\x-> if x=='-' then ' ' else x) . takeWhile (\x -> not (x`elem`['0'..'9']))
+
 
 
 freqTable :: Name -> [(Char, Int)]
@@ -61,3 +65,18 @@ ex4 = lines <$> readFile "input_day_4.txt"
 
 answer = sum <$> map getSectorId <$> filter isValidName <$> ex4
 
+translateSentence :: FullName -> String
+translateSentence fullname = translateSentence' (getSectorId fullname) (fullname)
+
+translateSentence' :: Int -> Name -> Sentence
+translateSentence' n thatString = map (\x -> if x `elem` ['a'..'z'] then (shiftN n x) else x) thatString
+
+shiftN :: Int -> Char -> Char
+shiftN n x = Char.chr ( (Char.ord x - 97 + n) `mod` 26 + 97 )
+
+
+
+answer' = map translateSentence $ filter isValidName ex4'
+answer2 = map translateSentence <$> filter isValidName <$> ex4
+
+lastAnswer = filter (List.isInfixOf "north") <$> answer2
