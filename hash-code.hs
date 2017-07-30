@@ -1,3 +1,5 @@
+{- problem statement : http://adventofcode.com/2016/day/4 -}
+
 import qualified Data.HashMap.Strict as HashMap
 import qualified Data.List as List
 
