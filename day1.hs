@@ -17,7 +17,6 @@ input = [R 3, L 5, R 1, R 2, L 5, R 2, R 3, L 2, L 5, R 5, L 4, L 3, R 5,
          L 1, L 5, L 1, R 2, R 4, L 5, R 2, L 4, L 5, L 4, L 5, 
          L 2, L 5, L 4, R 5, R 3, R 2, R 2, L 3, R 3, L 2, L 5]
 
-input_1 = [R 3, L 5, R 1, R 2, L 5, R 2, R 3, L 2, L 5, R 5, L 4, L 3, R 5, L 1, R 3, R 4, R 1, L 3, R 3, L 2, L 5, L 2, R 4, R 5, R 5, L 4, L 3, L 3, R 4, R 4, R 5, L 5, L 3, R 2, R 2, L 3, L 4, L 5, R 1, R 3, L 3, R 2, L 3, R 5, L 194, L 2, L 5, R 2, R 1, R 1, L 1, L 5, L 4, R 4, R 2, R 2, L 4, L 1, R 2, R 53, R 3, L 5, R 72, R 2, L 5, R 3, L 4, R 187, L 4, L 5, L 2, R 1, R 3, R 5, L 4, L 4, R 2, R 5, L 5, L 4, L 3, R 5, L 2, R 1, R 1, R 4, L 1, R 2, L 3, R 5, L 4, R 2, L 3, R 1, L 4, R 4, L 1, L 2, R 3, L 1, L 1, R 4, R 3, L 4, R 2, R 5, L 2, L 3, L 3, L 1, R 3, R 5, R 2, R 3, R 1, R 2, L 1, L 4, L 5, L 2, R 4, R 5, L 2, R 4, R 4, L 3, R 2, R 1, L 4, R 3, L 3, L 4, L 3, L 1, R 3, L 2, R 2, L 4, L 4, L 5, R 3, R 5, R 3, L 2, R 5, L 2, L 1, L 5, L 1, R 2, R 4, L 5, R 2, L 4, L 5, L 4, L 5, L 2, L 5, L 4, R 5, R 3, R 2, R 2, L 3, R 3, L 2, L 5]
 input_2 = [R 2, L 3]
 input_3 = [R 2, R 2, R 2]
 input_4 = [R 5, L 5, R 5, R 3]
