@@ -1,3 +1,8 @@
+{-
+ - source : http://adventofcode.com/2016/day/2
+ -
+ - Day 2 of advent of code. BathRoom password
+ -}
 import qualified Data.Maybe as Mb
 type Move = Char
 type Key = Int
