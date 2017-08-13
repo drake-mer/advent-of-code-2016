@@ -1,11 +1,9 @@
 import unittest
 import itertools
-import pprint
-data = [ instruction for instruction in open('input_day_8.txt') ]
 
-screen = [ list(itertools.repeat('.', 50)) for _ in range(6) ]
 
 def shift_indexable(line, shift):
+    """ shift a line """
     new_line = line[-shift:] + line[:-shift]
     return new_line
 
@@ -23,6 +21,11 @@ def light(x, y, screen):
             screen[l][k] = '#'
 
 def main():
+    """
+    Solve day8
+    """
+    data = [ instruction for instruction in open('input_day_8.txt') ]
+    screen = [ list(itertools.repeat('.', 50)) for _ in range(6) ]
     for line_num, instruction in enumerate(data):
         if instruction.startswith('rect'):
             _, coord = instruction.split()
@@ -36,20 +39,21 @@ def main():
             elif row_or_col == 'column':
                 shift_column(pos, int(shift), screen)
             else:
-                print(instruction)
-                import pdb;pdb.set_trace()
+                # non anticipated case
                 raise BaseException('UnknownOperation')
-
         else:
-            print(instruction)
+            # non anticipated case
             raise BaseException('UnknownOperation')
 
     else:
         print(*map(lambda x:''.join([' ' if y=='.' else y for y in x]),screen), sep="\n")
         print( sum((x.count('#') for x in screen)))
-        # pprint.pprint(screen)
+        
 
 class TestScript(unittest.TestCase):
+    """
+    Test case
+    """
     def setUp(self):
         pass
     def test_shift_indexable(self):
@@ -100,5 +104,7 @@ class TestScript(unittest.TestCase):
         ]
 
 if __name__=='__main__':
-    # unittest.main()
-    main()
+    """To run tests, uncomment the following statement:
+    unittest.main()
+    """
+    main()  # solve problem effectively
