@@ -1,3 +1,12 @@
+{-
+ - Here, the problem is to parse the input string and to deflate it completely.
+ - To deflate the string for the second part of the problem, scrapString2
+ - provide a slightly optimized answer but still brute-force.
+ -
+ - A good answer would be to build a tree for each lexeme. The folding
+ - of this tree would provide the answer in an extremely efficient fashion.
+ -}
+
 inputData = readFile "input_day_9.txt"
 
 splitAt' :: Eq a => a -> [a] -> ([a], [a])
